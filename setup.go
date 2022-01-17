@@ -7,7 +7,7 @@ import (
 )
 
 // viperInstance viperInstance 库实例
-var viperInstance *viper.Viper = viper.New()
+var viperInstance *viper.Viper
 
 type ConfigOption struct {
 	Type      string
@@ -21,6 +21,8 @@ func Setup(option ConfigOption) error {
 	if viperInstance != nil {
 		return nil
 	}
+
+	viperInstance = viper.New()
 
 	if option.Type != "" {
 		viperInstance.SetConfigType(option.Type)
