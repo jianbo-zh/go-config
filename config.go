@@ -7,6 +7,11 @@ import (
 // StrMap 简写 —— map[string]interface{}
 type StrMap map[string]interface{}
 
+// Reload 重新加载配置
+func Reload() error {
+	return viperInstance.ReadInConfig()
+}
+
 // Add 新增配置项
 func Add(name string, configuration map[string]interface{}) {
 	viperInstance.Set(name, configuration)
